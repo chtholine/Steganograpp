@@ -1,3 +1,4 @@
 /dist/.flatpak-builder/
 /build/
 /steganograpp.spec
+.idea
