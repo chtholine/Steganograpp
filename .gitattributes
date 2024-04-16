@@ -1,1 +1,2 @@
 dist/io.github.steganograpp filter=lfs diff=lfs merge=lfs -text
+dist/io.github.chtholine.steganograpp filter=lfs diff=lfs merge=lfs -text
