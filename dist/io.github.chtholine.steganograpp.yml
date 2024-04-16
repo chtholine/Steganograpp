@@ -16,6 +16,6 @@ modules:
      - install -D steganograpp/io.github.chtholine.steganograpp /app/bin/steganograpp
    sources:
       - type: file
-        url: https://github.com/chtholine/steganograpp/blob/33d5dbca7b108e1d077abd3389d0c54ee8dc1ca6/dist/io.github.steganograpp
+        url: https://github.com/chtholine/steganograpp/raw/main/dist/io.github.chtholine.steganograpp
         dest: steganograpp
         sha256: c465b5ef19d7439d767d0a317414aed27352c5aaa3910f7d6751444c152f990d
