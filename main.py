@@ -1,26 +1,19 @@
 import sys
 
+# Python program implementing Image Steganography
+# PIL module is used to extract
+# pixels of image and modify it
+from PIL import Image
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QApplication, QFileDialog, QMainWindow
-# Python program implementing Image Steganography
-
-# PIL module is used to extract
-# pixels of image and modify it
-from PIL import Image
 
 
 # Convert encoding data into 8-bit binary
 # form using ASCII value of characters
 def genData(data):
-    # list of binary codes
-    # of given data
-    newd = []
-
-    for i in data:
-        newd.append(format(ord(i), '08b'))
-    return newd
+    return [format(ord(i), '08b') for i in data]
 
 
 # Pixels are modified according to the
@@ -56,7 +49,7 @@ def modPix(pix, data):
         # whether to stop ot read further.
         # 0 means keep reading; 1 means thec
         # message is over.
-        if (i == lendata - 1):
+        if i == lendata - 1:
             if (pix[-1] % 2 == 0):
                 if (pix[-1] != 0):
                     pix[-1] -= 1
@@ -116,7 +109,6 @@ def decode(path: str):
         data += chr(int(binstr, 2))
         if (pixels[-1] % 2 != 0):
             return data
-
 
 
 class UI(QMainWindow):
