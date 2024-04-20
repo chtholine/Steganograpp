@@ -1,0 +1,37 @@
+id: io.github.chtholine.steganograpp
+runtime: org.kde.Platform
+runtime-version: '6.6'
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.6'
+command: steganograpp
+finish-args:
+ - --socket=fallback-x11
+ - --socket=wayland
+ - --device=dri
+ - --share=ipc
+ - --filesystem=home
+build-options:
+  env:
+    QT_DEBUG_PLUGINS: '1'
+    DISPLAY: ':0'
+modules:
+  - name: python3-pillow
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pillow" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ef/43/c50c17c5f7d438e836c169e343695534c38c77f60e7c90389bd77981bc21/pillow-10.3.0.tar.gz
+        sha256: 9d2455fbf44c914840c793e89aa82d0e1763a14253a000743719ae5946814b2d
+  - name: steganograpp
+    buildsystem: simple
+    build-commands:
+      - export DISPLAY=:0
+      - python3 steganograpp/main.py
+    sources:
+      - type: file
+        url: https://github.com/chtholine/steganograpp/raw/main/main.py
+        sha256: 4a88669d693cdf0bcb7e8afb561599fb84a59122f5857c6acb22bfc8e988dbce
+        dest: steganograpp

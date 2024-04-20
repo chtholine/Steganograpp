@@ -2,3 +2,8 @@
 /build/
 /steganograpp.spec
 .idea
+/repo/
+/.flatpak-builder/
+builddir
+/.ruff_cache/
+flatpak-pip-generator.txt
