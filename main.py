@@ -255,7 +255,7 @@ class UI(QMainWindow):
 
     def browse_output_path(self):
         # Set file filter to enforce PNG files only
-        save_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Images (*.png *.jpg *.jpeg)")
+        save_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "PNG Images (*.png)")
         self.output_path.setText(save_path)
 
         # Enforce PNG extension if user doesn't provide it
